@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+    <!-- Bloque de contenido específico para esta plantilla -->
+
+    <p>Datos filtrados por el Nombre </p>
+
+    <!-- Iterando sobre los objetos en la variable 'busqueda' -->
+    {% for objeto in busqueda %}
+        <p>El nombre es: {{ objeto.nombre_completo }} </p>
+
+        <p>El correo es: {{ objeto.correo }} </p>
+
+        <!-- Verificando el tipo de contacto y mostrando el mensaje correspondiente -->
+        {% if objeto.tipo_de_contacto == 1 %}
+            <p>El tipo de contacto es: correo </p>
+        {% elif objeto.tipo_de_contacto == 0 %}
+            <p>El tipo de contacto es: telefono </p>
+        {% endif %}
+
+        <hr> <!-- Línea horizontal -->
+
+    {% endfor %}
+
+{% endblock contenido %}
